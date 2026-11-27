@@ -129,7 +129,19 @@ onBeforeUnmount(() => {
       <div class="hero">
         <h1 class="hero__name">{{ profile.name }}</h1>
         <p class="hero__claim">Développeur data, BI et IA.</p>
-        <p class="hero__intro">Étudiant en 3<sup>e</sup> année de BUT Informatique à Belfort.<br />J’ai construit des flux de données à l’université et des applications en équipe.</p>
+        <p class="hero__intro">
+          Étudiant en 3<sup>e</sup> année de BUT Informatique à Belfort, je conçois des flux de données,
+          des tableaux de bord et des applications, seul ou en équipe.
+        </p>
+        <dl class="hero__facts">
+          <div><dt>Stage</dt><dd>DSIN de l’Université Marie et Louis Pasteur</dd></div>
+          <div><dt>Projets</dt><dd>4 projets détaillés, de la data au jeu vidéo</dd></div>
+          <div><dt>Après le BUT</dt><dd>Un master en data et IA</dd></div>
+        </dl>
+        <p class="hero__actions">
+          <a href="#projets" class="btn">Voir mes projets</a>
+          <a :href="profile.cv" download class="btn btn--ghost">Mon CV (PDF)</a>
+        </p>
         <p class="hero__hint">Faites défiler pour découvrir mon parcours, projet par projet.</p>
       </div>
       <!-- sans 3D : une photo de l'ordinateur en particules prend sa place -->
@@ -269,8 +281,15 @@ onBeforeUnmount(() => {
 
 .hero__name { font-size: clamp(48px, 8.5vw, 136px); line-height: 0.92; letter-spacing: -0.03em; }
 .hero__claim { margin-top: 28px; font-size: clamp(20px, 2vw, 28px); line-height: 1.35; max-width: 28ch; }
-.hero__intro { margin-top: 18px; color: var(--muted); }
-.hero__hint { margin-top: 40px; font-size: 15px; color: var(--accent); }
+.hero { pointer-events: auto; }
+.hero__intro { margin-top: 18px; color: var(--muted); max-width: 34rem; }
+.hero__facts { margin: 28px 0 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; max-width: 36rem; }
+.hero__facts div { border-top: 2px solid var(--line); padding-top: 10px; }
+.hero__facts div:first-child { border-top-color: var(--accent); }
+.hero__facts dt { font-family: var(--font-display); font-size: 13px; color: var(--accent); }
+.hero__facts dd { margin: 4px 0 0; font-size: 15px; line-height: 1.4; }
+.hero__actions { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 12px; }
+.hero__hint { margin-top: 28px; font-size: 15px; color: var(--accent); }
 
 /* Panneau d'un chapitre : une carte, lue de haut en bas */
 .panel {
@@ -345,7 +364,18 @@ onBeforeUnmount(() => {
   .hero__name { font-size: clamp(44px, 13vw, 64px); }
   .hero__claim { margin-top: 16px; font-size: 19px; }
   .hero__intro { margin-top: 12px; font-size: 15px; }
-  .hero__hint { margin-top: 20px; font-size: 14px; }
+  .hero__facts { margin-top: 18px; grid-template-columns: 1fr; gap: 8px; }
+  .hero__facts div { display: flex; gap: 10px; align-items: baseline; padding-top: 6px; }
+  .hero__facts dt { flex: 0 0 104px; white-space: nowrap; }
+  .hero__facts dd { margin: 0; font-size: 14px; }
+  .hero__actions { margin-top: 18px; }
+  .hero__actions .btn { flex: 1; justify-content: center; white-space: nowrap; padding-left: 12px; padding-right: 12px; }
+  .hero__hint { display: none; }
+}
+/* petits téléphones : les repères passent à la trappe pour laisser la place à l'ordinateur */
+@media (max-width: 760px) and (max-height: 760px) {
+  .hero__facts { display: none; }
+  .hero__intro { margin-top: 10px; }
 
   /* panneau court : le détail complet est sur la page projet */
   .panel { width: 100%; padding: 18px 16px 18px; }
