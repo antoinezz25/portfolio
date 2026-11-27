@@ -22,7 +22,7 @@ export const skillTables = [
       { skill: 'JavaScript, Node.js, Express', proof: 'API du GP Explorer et du centre aquatique', slug: 'gp-explorer' },
       { skill: 'Vue.js 3, HTML / CSS', proof: 'GP Explorer, ce portfolio', slug: 'gp-explorer' },
       { skill: 'C', proof: 'Cours d’algorithmique et de systèmes' },
-      { skill: 'C# (Unity)', proof: 'FPS Zombie', slug: 'fps-zombie' },
+      { skill: 'C# (Unity)', proof: 'Survie zombie', slug: 'fps-zombie' },
     ],
   },
   {

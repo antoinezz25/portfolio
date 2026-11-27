@@ -29,7 +29,7 @@ export const projects = [
       'Script de chargement QlikSense',
     ],
     short:
-      "Stage à la DSI de l'université : créer les flux qui alimentent les applications pendant le changement de logiciel de scolarité.",
+      "Stage à la DSIN de l’université : créer les flux qui alimentent les applications pendant le changement de logiciel de scolarité.",
     period: 'Avril à juin 2026',
     frame: 'Stage de 2e année',
     org: 'DSIN — Université Marie et Louis Pasteur',
@@ -39,19 +39,19 @@ export const projects = [
     cover: asset('img/projets/stage-dsin/1.webp'),
     coverAlt: 'Job Talend : appel de l’API Pégase, filtre puis rapprochement avec le LDAP',
     intro:
-      "L'université remplace son ancien logiciel de scolarité (Apogée) par le nouveau système national Pégase. Pendant la transition, les deux cohabitent : les applications qui lisaient les données d'Apogée doivent continuer à fonctionner. Ma mission : reconstruire certains de ces flux de données et rendre les données de Pégase exploitables pour les tableaux de bord.",
+      "L’université remplace son ancien logiciel de scolarité (Apogée) par le nouveau système national Pégase. Pendant la transition, les deux cohabitent : les applications qui lisaient les données d’Apogée doivent continuer à fonctionner. Ma mission : reconstruire certains de ces flux de données et rendre les données de Pégase exploitables pour les tableaux de bord.",
     features: [
-      "<strong>Flux « Calcium »</strong> : un job ETL qui récupère chaque jour les parcours de milliers d'étudiants depuis l'API Pégase et produit le fichier d'import de l'application de rendez-vous médicaux.",
-      "<strong>Base locale DRE</strong> : paramétrage de DREmgr (déployé avec Docker) pour rapatrier les données de Pégase, qui est hébergé à l'extérieur (SaaS).",
-      "<strong>Business Intelligence</strong> : connexion de Business Objects à la base DRE, requêtes d'extraction pour les services administratifs et script de chargement QlikSense.",
-      "<strong>Reprise de données</strong> : requêtes SQL pour aider l'équipe à fiabiliser les données migrées.",
+      "<strong>Flux « Calcium »</strong> : un job ETL qui récupère chaque jour les parcours de milliers d’étudiants depuis l’API Pégase et produit le fichier d’import de l’application de rendez-vous médicaux.",
+      "<strong>Base locale DRE</strong> : paramétrage de DREmgr (déployé avec Docker) pour rapatrier les données de Pégase, qui est hébergé à l’extérieur (SaaS).",
+      "<strong>Business Intelligence</strong> : connexion de Business Objects à la base DRE, requêtes d’extraction pour les services administratifs et script de chargement QlikSense.",
+      "<strong>Reprise de données</strong> : requêtes SQL pour aider l’équipe à fiabiliser les données migrées.",
     ],
     role:
-      "J'étais seul sur le flux Calcium, de l'étude de l'API jusqu'à la documentation, que j'ai présentée à l'équipe.",
+      "J’étais seul sur le flux Calcium, de l’étude de l’API jusqu’à la documentation, que j’ai présentée à l’équipe.",
     challenges: [
       {
-        problem: "L'API Pégase renvoie plus de 300 pages de résultats et refusait les connexions quand Talend l'appelait trop vite.",
-        solution: "Pagination maîtrisée, référentiels chargés une seule fois en mémoire pour éviter des milliers d'appels, et filtres Java qui interceptent les timeouts et les données manquantes au lieu de faire planter le job.",
+        problem: "L’API Pégase renvoie plus de 300 pages de résultats et refusait les connexions quand Talend l’appelait trop vite.",
+        solution: "Pagination maîtrisée, référentiels chargés une seule fois en mémoire pour éviter des milliers d’appels, et filtres Java qui interceptent les timeouts et les données manquantes au lieu de faire planter le job.",
       },
       {
         problem: "Un domaine métier totalement nouveau (la scolarité universitaire) et une documentation Pégase de plusieurs centaines de pages.",
@@ -70,7 +70,7 @@ export const projects = [
     links: [
       { label: 'Rapport de stage détaillé (14 traces)', url: 'https://github.com/antoinezz25/portfolio_but2' },
     ],
-    next: "Le passage en production partielle de Pégase est prévu à la rentrée 2026 : le flux Calcium et sa documentation ont été transmis à l'équipe pour la suite.",
+    next: "Le passage en production partielle de Pégase est prévu à la rentrée 2026 : le flux Calcium et sa documentation ont été transmis à l’équipe pour la suite.",
   },
   {
     slug: 'centre-aquatique',
@@ -78,7 +78,7 @@ export const projects = [
     end: '2027-02',
     featured: true,
     badge: 'En cours',
-    title: "Supervision connectée d'un centre aquatique",
+    title: "Supervision connectée d’un centre aquatique",
     label: 'Supervision d’un centre aquatique',
     context: 'SAÉ, 2026–2027',
     highlights: [
@@ -87,7 +87,7 @@ export const projects = [
       'Tableau de bord temps réel et alertes',
     ],
     short:
-      "Des capteurs mesurent la qualité de l'eau des bassins, une IA analyse les photos envoyées par les usagers et un tableau de bord alerte le personnel.",
+      "Des capteurs mesurent la qualité de l’eau des bassins, une IA analyse les photos envoyées par les usagers et un tableau de bord alerte le personnel.",
     period: 'Sept. 2026 à janv. 2027',
     frame: 'SAÉ S5-S6, BUT 3',
     org: 'IUT Nord Franche-Comté',
@@ -97,24 +97,24 @@ export const projects = [
     cover: null,
     diagram: 'iot',
     intro:
-      "Aujourd'hui, le centre aquatique relève la qualité de l'eau à la main, sur papier. Notre système la mesure en continu, garde l'historique sur plusieurs saisons et alerte le personnel dès qu'une valeur sort des limites. Les usagers peuvent aussi signaler un problème (déchet, sol glissant…) en prenant une photo.",
+      "Aujourd’hui, le centre aquatique relève la qualité de l’eau à la main, sur papier. Notre système la mesure en continu, garde l’historique sur plusieurs saisons et alerte le personnel dès qu’une valeur sort des limites. Les usagers peuvent aussi signaler un problème (déchet, sol glissant…) en prenant une photo.",
     features: [
       "<strong>Mesure en continu</strong> : des boîtiers ESP32 relèvent la température, le pH, la turbidité et les sels dissous de chaque bassin.",
       "<strong>Alertes par gravité</strong> quand une mesure sort des seuils du bassin.",
-      "<strong>Signalement par photo</strong> : l'IA (MobileNetV2) vérifie que la photo correspond au problème choisi et estime sa criticité.",
-      "<strong>Anticipation</strong> : prévision des séries temporelles et détection d'anomalies (Isolation Forest) pour planifier l'entretien.",
+      "<strong>Signalement par photo</strong> : l’IA (MobileNetV2) vérifie que la photo correspond au problème choisi et estime sa criticité.",
+      "<strong>Anticipation</strong> : prévision des séries temporelles et détection d’anomalies (Isolation Forest) pour planifier l’entretien.",
       "<strong>Tableau de bord web</strong> : état en temps réel, courbes, comparaisons et bilan hebdomadaire du directeur.",
     ],
     role:
-      "Je m'occupe des tests (scénarios Cucumber, tests Selenium, plan de performance sur Jenkins) et de l'intégration entre l'API, le serveur Java, MongoDB et Docker.",
+      "Je m’occupe des tests (scénarios Cucumber, tests Selenium, plan de performance sur Jenkins) et de l’intégration entre l’API, le serveur Java, MongoDB et Docker.",
     challenges: [
       {
         problem: "Comment prouver que le système tient la charge alors que tous les boîtiers peuvent se reconnecter à la même seconde après une coupure Wi-Fi ?",
         solution: "Un plan de tests de performance avec des objectifs chiffrés (ex. 200 boîtiers simulés servis en moins de 30 s, 95 % des requêtes en moins de 200 ms) à valider avec le client avant de lancer les mesures.",
       },
       {
-        problem: "Le Jenkins de l'IUT n'accepte que d'anciennes versions de Java.",
-        solution: "Adaptation des projets de tests (Java 11, puis Java 8 pour les tests d'acceptation) pour que l'intégration continue passe.",
+        problem: "Le Jenkins de l’IUT n’accepte que d’anciennes versions de Java.",
+        solution: "Adaptation des projets de tests (Java 11, puis Java 8 pour les tests d’acceptation) pour que l’intégration continue passe.",
       },
     ],
     shots: [
@@ -141,7 +141,7 @@ export const projects = [
       'Statistiques pour les organisateurs',
     ],
     short:
-      "Le site d'un événement de course automobile (F4) : billetterie, carte du circuit, espace prestataires, boutique et statistiques.",
+      "Le site d’un événement de course automobile (F4) : billetterie, carte du circuit, espace prestataires, boutique et statistiques.",
     period: 'Sept. 2025 à avr. 2026',
     frame: 'SAÉ S3-S4, BUT 2',
     org: 'IUT Nord Franche-Comté',
@@ -151,7 +151,7 @@ export const projects = [
     cover: asset('img/gp/dashboard_global.webp'),
     coverAlt: 'Tableau de bord de performance globale du GP Explorer',
     intro:
-      "Le GP Explorer rassemble des dizaines de milliers de spectateurs pendant un week-end. Notre plateforme gère tout l'événement : vente des billets, carte interactive du circuit, espace pour les prestataires (restauration, boutiques, activités) et statistiques pour les organisateurs. Elle a trois profils : administrateur, prestataire et visiteur.",
+      "Le GP Explorer rassemble des dizaines de milliers de spectateurs pendant un week-end. Notre plateforme gère tout l’événement : vente des billets, carte interactive du circuit, espace pour les prestataires (restauration, boutiques, activités) et statistiques pour les organisateurs. Elle a trois profils : administrateur, prestataire et visiteur.",
     features: [
       '<strong>Billetterie</strong> avec réservation, QR code et mode cadeau.',
       '<strong>Carte interactive du circuit</strong> avec les emplacements des prestataires.',
@@ -160,7 +160,7 @@ export const projects = [
       '<strong>Site traduit</strong> en français, anglais et espagnol, avec un mode sombre.',
     ],
     role:
-      "J'ai développé les comptes et les rôles, la réservation de billets, les statistiques, la boutique et le mode sombre.",
+      "J’ai développé les comptes et les rôles, la réservation de billets, les statistiques, la boutique et le mode sombre.",
     challenges: [
       {
         problem: 'Le premier système de réservation était trop complexe et générait des bugs.',
@@ -207,7 +207,7 @@ export const projects = [
     cover: null,
     diagram: 'fps',
     intro:
-      "Le joueur doit tenir le plus de manches possible face à des zombies qui le traquent sur la carte. Chaque manche en fait apparaître davantage, jusqu'à l'arrivée d'un boss. La partie se configure (nombre de manches et de zombies) et les touches sont personnalisables.",
+      "Le joueur doit tenir le plus de manches possible face à des zombies qui le traquent sur la carte. Chaque manche en fait apparaître davantage, jusqu’à l’arrivée d’un boss. La partie se configure (nombre de manches et de zombies) et les touches sont personnalisables.",
     features: [
       '<strong>Système de manches</strong> : jusqu’à 20 manches et 50 zombies.',
       '<strong>Zombies qui poursuivent le joueur</strong> en contournant les obstacles.',
@@ -239,7 +239,7 @@ export const projects = [
     slug: 'oauth',
     featured: false,
     title: 'Connexion multi-fournisseurs (OAuth 2.0 + JWT)',
-    short: 'Une démo de connexion par email ou via Google, GitHub et Discord, sécurisée par jetons JWT.',
+    short: 'Une démo de connexion par e-mail ou via Google, GitHub et Discord, sécurisée par jetons JWT.',
     period: 'Févr. 2026',
     frame: 'Projet personnel',
     team: 'Seul',

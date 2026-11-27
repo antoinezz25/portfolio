@@ -29,7 +29,7 @@ onMounted(() => (document.title = 'Antoine Duarte — Développeur data, BI et I
           une alerte, un tableau de bord, une prévision.
         </p>
         <p>
-          J’ai découvert ce métier pendant mon <strong>stage à la DSI de l’Université Marie et Louis Pasteur</strong>,
+          J’ai découvert ce métier pendant mon <strong>stage à la DSIN de l’Université Marie et Louis Pasteur</strong>,
           où j’ai construit un flux de données utilisé chaque jour par une application de santé étudiante.
         </p>
         <p>
