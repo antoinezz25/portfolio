@@ -8,5 +8,5 @@ export const profile = {
   githubUser: 'antoinezz25',
   location: 'Belfort, Franche-Comté',
   cv: asset('cv/Antoine-Duarte-CV.pdf'),
-  lookingFor: 'Stage de fin d’études (S6) en data, BI ou IA',
+  lookingFor: 'Poursuite d’études en data et IA (master ou école d’ingénieurs)',
 }

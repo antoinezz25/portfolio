@@ -117,7 +117,7 @@ onMounted(() => (document.title = 'Antoine Duarte — Développeur data, BI et I
     <header class="sec-head">
       <p class="kicker">Contact</p>
       <h2 id="t-contact" class="sec-title">Me contacter</h2>
-      <p class="sec-lead">Une offre de stage, une question sur un projet ? Je vous réponds rapidement.</p>
+      <p class="sec-lead">Une question sur un projet, ou envie d’échanger sur la data et l’IA ? Je vous réponds rapidement.</p>
     </header>
 
     <div class="contact">

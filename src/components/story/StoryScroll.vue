@@ -128,8 +128,8 @@ onBeforeUnmount(() => {
     <div :ref="(el) => (steps[0] = el)" class="step step--hero">
       <div class="hero">
         <h1 class="hero__name">{{ profile.name }}</h1>
-        <p class="hero__claim">Je transforme des données brutes en outils utiles : flux, tableaux de bord, IA.</p>
-        <p class="hero__intro">Étudiant en 3<sup>e</sup> année de BUT Informatique à Belfort.<br />Je recherche un stage de fin d’études en data, BI ou IA.</p>
+        <p class="hero__claim">Développeur data, BI et IA.</p>
+        <p class="hero__intro">Étudiant en 3<sup>e</sup> année de BUT Informatique à Belfort.<br />J’ai construit des flux de données à l’université et des applications en équipe.</p>
         <p class="hero__hint">Faites défiler pour découvrir mon parcours, projet par projet.</p>
       </div>
       <!-- sans 3D : une photo de l'ordinateur en particules prend sa place -->
@@ -177,7 +177,7 @@ onBeforeUnmount(() => {
       </div>
       <div class="end">
         <h2 class="end__title">Et la suite&nbsp;?</h2>
-        <p class="end__text muted">Un stage de fin d’études pour mettre ces outils au service de vos données.</p>
+        <p class="end__text muted">Après le BUT, je veux poursuivre mes études en data et en IA, en master ou en école d’ingénieurs.</p>
         <p class="end__links">
           <a href="#contact" class="btn">Me contacter</a>
           <a :href="profile.cv" download class="btn btn--ghost">Télécharger mon CV (PDF)</a>
