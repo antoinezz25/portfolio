@@ -1,7 +1,8 @@
 <script setup>
 // Formulaire de contact.
 // Avec VITE_FORMSPREE_ID (fichier .env), le message est envoyé par Formspree.
-// Sans cette variable, le formulaire ouvre la messagerie du visiteur avec le message prérempli.
+// Sans cette variable, le formulaire ouvre Gmail dans un nouvel onglet avec le message prérempli ;
+// des liens de secours permettent d'utiliser une autre messagerie ou de copier l'adresse.
 import { ref, reactive } from 'vue'
 import { profile } from '../data/profile'
 
@@ -9,6 +10,17 @@ const formId = import.meta.env.VITE_FORMSPREE_ID
 const form = reactive({ name: '', email: '', message: '', website: '' })
 const status = ref('idle') // idle | sending | sent | error
 const errors = reactive({})
+const mailtoUrl = ref('')
+const copied = ref(false)
+
+async function copyEmail() {
+  try {
+    await navigator.clipboard.writeText(profile.email)
+    copied.value = true
+  } catch {
+    copied.value = false
+  }
+}
 
 function validate() {
   for (const k of Object.keys(errors)) delete errors[k]
@@ -28,8 +40,12 @@ async function submit() {
   if (!formId) {
     const subject = encodeURIComponent(`Contact depuis le portfolio — ${form.name}`)
     const body = encodeURIComponent(`${form.message}\n\n${form.name} — ${form.email}`)
-    window.location.href = `mailto:${profile.email}?subject=${subject}&body=${body}`
-    status.value = 'sent'
+    mailtoUrl.value = `mailto:${profile.email}?subject=${subject}&body=${body}`
+    const gmail = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(profile.email)}&su=${subject}&body=${body}`
+    // sans « noopener » pour savoir si l'onglet a été bloqué ; on coupe ensuite le lien avec cette page
+    const tab = window.open(gmail, '_blank')
+    if (tab) tab.opener = null
+    status.value = tab ? 'gmail' : 'blocked'
     return
   }
 
@@ -79,7 +95,15 @@ async function submit() {
 
     <p class="status" role="status">
       <template v-if="status === 'sent'">
-        {{ formId ? 'Message envoyé. Je vous réponds rapidement.' : 'Votre messagerie s’est ouverte avec le message prérempli.' }}
+        Message envoyé. Je vous réponds rapidement.
+      </template>
+      <template v-else-if="status === 'gmail' || status === 'blocked'">
+        <span v-if="status === 'gmail'">Gmail s’est ouvert dans un nouvel onglet avec votre message : il ne reste qu’à cliquer sur <strong>Envoyer</strong>.</span>
+        <span v-else>Le nouvel onglet a été bloqué par votre navigateur.</span>
+        <span class="alt">
+          Pas de Gmail ? <a :href="mailtoUrl">Ouvrir ma messagerie</a> ou
+          <button type="button" class="link" @click="copyEmail">{{ copied ? 'adresse copiée' : 'copier mon adresse' }}</button>.
+        </span>
       </template>
       <template v-else-if="status === 'error'">
         Le message n’est pas parti. Votre texte est conservé : réessayez, ou écrivez directement à
@@ -115,4 +139,6 @@ textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 0; bo
 .btn { align-self: flex-start; }
 .btn:disabled { opacity: 0.6; cursor: wait; }
 .status { min-height: 1.5em; font-size: 15px; }
+.alt { display: block; margin-top: 6px; color: var(--muted); }
+.link { font: inherit; color: var(--accent); background: none; border: 0; padding: 0; text-decoration: underline; cursor: pointer; }
 </style>
